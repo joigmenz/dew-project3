@@ -1,0 +1,79 @@
+
+
+.sliding-puzzle {
+    display: flex;
+    flex-flow: row wrap;
+    position: relative;
+    height: 450px;
+    width: 450px;
+    background-color: aquamarine;
+}
+
+.piece {
+    height: 33.33%;
+    width: 33.33%;
+    background-color: bisque;
+}
+
+.slot-0 {
+    left: 0%;
+    top: 0%;
+}
+
+.slot-1 {
+    left: 33.33%;
+    top: 0%
+}
+
+.slot-2 {
+    left: 66.66%;
+    top: 0%;
+}
+
+.slot-3 {
+    left: 0%;
+    top: 33.33%;
+}
+
+.slot-4 {
+    left: 33.33%;
+    top: 33.33%;
+}
+
+.slot-5 {
+    left: 66.66%;
+    top: 33.33%;
+}
+
+.slot-6 {
+    left: 0%;
+    top: 66.66%;
+}
+
+.slot-7 {
+    left: 33.33%;
+    top: 66.66%;
+}
+
+.slot-8 {
+    left: 66.66%;
+    top: 66.66%;
+}
+
+.gap {
+    background-color: blue;
+}
+
+@media only screen and (min-width: 320px) {
+    .sliding-puzzle {
+        height: 320px;
+        width: 320px;
+    }
+}
+
+@media only screen and (min-width: 800px) {
+    .sliding-puzzle {
+        height: 600px;
+        width: 600px;
+    }
+}
