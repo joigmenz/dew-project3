@@ -9,19 +9,29 @@
     <title>Sliding Puzzle</title>
 </head>
 <body>
-    <div class="">        
-        <form id="sliding-puzzle" class="sliding-puzzle" action="#">
-            <img data-piece="7" class="piece" src="#" alt="7">            
-            <img data-piece="5" class="piece" src="#" alt="5">
-            <img data-piece="8" class="piece" src="#" alt="8">
-            <img data-piece="2" class="piece" src="#" alt="2">
-            <img data-piece="3" class="piece" src="#" alt="3">
-            <img data-piece="6" class="piece" src="#" alt="6">
-            <img data-piece="1" class="piece" src="#" alt="1">
-            <img data-piece="4" class="piece" src="#" alt="4">
-            <img id="gap" data-piece="0" class="piece gap" src="#" alt="0">
-        </form>
-    </div>
+    <div class="game">
+        <div class="stats-info">
+            <div class="time">
+                <span id="seconds">00:59 seg.</span>
+            </div>
+            <div class="scope">
+                <span id="count">0</span>
+            </div>
+        </div>
+        <div class="">        
+            <form id="sliding-puzzle" class="sliding-puzzle" action="#">
+                <img data-piece="1" class="piece" src="./assets/teemo/1.png" alt="1">
+                <img data-piece="2" class="piece" src="./assets/teemo/2.png" alt="2">
+                <img data-piece="3" class="piece" src="./assets/teemo/3.png" alt="3">
+                <img data-piece="4" class="piece" src="./assets/teemo/4.png" alt="4">
+                <img data-piece="5" class="piece" src="./assets/teemo/5.png" alt="5">
+                <img data-piece="7" class="piece" src="./assets/teemo/7.png" alt="7"> 
+                <img data-piece="8" class="piece" src="#" alt="8">
+                <img data-piece="6" class="piece" src="#" alt="6"> 
+                <img id="gap" data-piece="0" class="piece gap" src="#" alt="0">
+            </form>
+        </div>
+    </div>    
     <script src="./js/puzzle.js"></script>
 </body>
 </html>

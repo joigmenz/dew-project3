@@ -1,7 +1,7 @@
 {
   "scripts": {
-      "start-dev": "node src/index.js",
-      "start-serve": "ng serve --host=192.168.2.93 --port=4545"
+    "start-dev": "node src/index.js",
+    "start-serve": "ng serve --host=192.168.2.93 --port=4545"
   },
   "dependencies": {
     "express": "^4.17.1"
