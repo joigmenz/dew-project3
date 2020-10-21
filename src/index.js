@@ -8,9 +8,8 @@ app.use(express.static(path.join(__dirname, 'public')))
 
 app.set('port', port)
 
-app.listen(80, "192.168.2.93")
-/*
+//app.listen(80, "192.168.2.93")
+
 app.listen(port, () => {
     console.log(`App on the port ${port}`)
 })
-*/

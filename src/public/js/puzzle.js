@@ -1,9 +1,10 @@
 class SlidingPuzzle {
-    static starft = new Date()
+    static dateInit = new Date()
     static count = 1;
     static gap = document.getElementById("gap")
     static game = document.getElementById('sliding-puzzle')
-    static pieces = [0, 1, 2, 3, 4, 5, 6, 7, 8]
+    static modalSettings = document.getElementById('modalSettings')
+    static pieces = [1, 2, 3, 4, 5, 6, 7, 8, 9]
     static click = this.game.addEventListener('click', (event) => {
         if(event.target.parentNode != this.gap){
             this.sliding(event.target) 
@@ -40,14 +41,33 @@ class SlidingPuzzle {
         pieceParent.appendChild(gap)
         gapParent.appendChild(piece)
     }   
-    static print(pieces) {
+    static print(pieces){
         this.clear()
         pieces.forEach(piece => {
             this.game.appendChild(piece)
         })
 
     }
-    static clear() {
+    static clear(){
         this.game.innerHTML = ""
+    }
+    static pause(){
+        this.settings()
+    }
+    static settings(){
+        let modal = document.getElementById('modalSettings')
+        modal.style.display = "block"
+    }
+    static close(){
+        this.modalSettings.style.display = "none"
+    }
+    static exit(){
+        
+    }
+}
+
+window.onclick = function(event) {
+    if(event.target == SlidingPuzzle.modalSettings) {
+        SlidingPuzzle.modalSettings.style.display = "none"
     }
 }

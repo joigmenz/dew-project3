@@ -1,7 +1,22 @@
+.game {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    gap: 15px;
+    position: relative;
+}
+
 .stats-info {
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
+}
+
+.buttons {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 10px;
+    align-self: center;
 }
 
 .sliding-puzzle {
@@ -26,6 +41,51 @@
 .gap {
     background-color: blue;
     opacity: .1;
+}
+
+.modal {
+    display: none;
+    background-color: rgba(0, 0, 0, .4);  
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 1;
+}
+
+.modal-content {
+    position: relative;
+    background: #fff; 
+    border-radius: 15px;  
+    margin: 10% auto;     
+    height: 50%;
+    width: 350px;
+}
+
+.close {
+    position: absolute;
+    color: #aaa;
+    top: 10px;
+    right: 15px;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.settings {
+    display: flex;
+    gap: 10px;
+    flex-flow: column nowrap;
+    margin: auto;
+    padding: 15px;
+    width: 50%;
+}
+
+.close:focus,
+.close:hover {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 @media only screen and (min-width: 320px) {

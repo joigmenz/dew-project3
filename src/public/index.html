@@ -21,36 +21,46 @@
         <div class="">        
             <form id="sliding-puzzle" class="sliding-puzzle" action="#">               
                 <div class="piece">
-                    <img id="gap"  data-piece="0" class="gap" src="./assets/teemo/1.png" alt="1">
-                </div>  
-                <div class="piece">
-                    <img data-piece="1" src="./assets/teemo/2.png" alt="2">
+                    <img data-piece="1" src="./assets/teemo/1.png" alt="1">
                 </div>             
                 <div class="piece">
-                    <img data-piece="2" src="./assets/teemo/3.png" alt="3">
+                    <img data-piece="2" src="./assets/teemo/2.png" alt="2">
                 </div>
                 <div class="piece">
-                    <img data-piece="3" src="./assets/teemo/4.png" alt="4">
+                    <img data-piece="3" src="./assets/teemo/3.png" alt="3">
                 </div>
                 <div class="piece">
-                    <img data-piece="4" src="./assets/teemo/5.png" alt="5">
+                    <img data-piece="4" src="./assets/teemo/4.png" alt="4">
                 </div>
                 <div class="piece">
-                    <img data-piece="5" src="./assets/teemo/6.png" alt="6">
+                    <img data-piece="5" src="./assets/teemo/5.png" alt="5">
                 </div>
                 <div class="piece">
-                    <img data-piece="6" src="./assets/teemo/7.png" alt="7">
+                    <img data-piece="6" src="./assets/teemo/6.png" alt="6">
                 </div>
                 <div class="piece">
-                    <img data-piece="7" src="./assets/teemo/8.png" alt="8">
+                    <img data-piece="7" src="./assets/teemo/7.png" alt="7">
                 </div>       
                 <div class="piece">
-                    <img data-piece="8"src="./assets/teemo/9.png" alt="0">
+                    <img data-piece="8"src="./assets/teemo/8.png" alt="8">
+                </div>  
+                <div class="piece">
+                    <img id="gap"  data-piece="9" class="gap" src="./assets/teemo/9.png" alt="9">
                 </div>  
             </form>
         </div>
+        <div id="modalSettings" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="SlidingPuzzle.close()">&times;</span>
+                <div class="settings">
+                    <button onclick="SlidingPuzzle.close()">REANUDE</button>
+                    <button onclick="SlidingPuzzle.exit()">EXIT GAME</button>
+                </div>
+            </div>
+        </div>
         <div class="buttons">
             <button onclick="SlidingPuzzle.start()">START</button>
+            <button onclick="SlidingPuzzle.pause()">PAUSE</button>
         </div>
     </div>    
     <script src="./js/puzzle.js"></script>
