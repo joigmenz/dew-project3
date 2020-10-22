@@ -9,60 +9,57 @@
     <title>Sliding Puzzle</title>
 </head>
 <body>
-    <div class="game">
-        <div class="stats-info">
-            <div class="time">
-                <span id="seconds">00:59 seg.</span>
-            </div>
-            <div class="scope">
-                <span id="count">0</span>
-            </div>
-        </div>
-        <div class="">        
-            <form id="sliding-puzzle" class="sliding-puzzle" action="#">               
-                <div class="piece">
-                    <img data-piece="1" src="./assets/teemo/1.png" alt="1">
-                </div>             
-                <div class="piece">
-                    <img data-piece="2" src="./assets/teemo/2.png" alt="2">
+    <div class="main">
+        <div class="game"> 
+            <div class="user-info">
+                <span id="name" class="name">Joigmnz</span>
+            </div> 
+            <div class="stats-info">
+                <div class="time">
+                    <span id="min">00</span> :
+                    <span id="sec">00</span>
                 </div>
-                <div class="piece">
-                    <img data-piece="3" src="./assets/teemo/3.png" alt="3">
+                <div class="scope">
+                    <span id="score">0</span>
                 </div>
-                <div class="piece">
-                    <img data-piece="4" src="./assets/teemo/4.png" alt="4">
-                </div>
-                <div class="piece">
-                    <img data-piece="5" src="./assets/teemo/5.png" alt="5">
-                </div>
-                <div class="piece">
-                    <img data-piece="6" src="./assets/teemo/6.png" alt="6">
-                </div>
-                <div class="piece">
-                    <img data-piece="7" src="./assets/teemo/7.png" alt="7">
-                </div>       
-                <div class="piece">
-                    <img data-piece="8"src="./assets/teemo/8.png" alt="8">
-                </div>  
-                <div class="piece">
-                    <img id="gap"  data-piece="9" class="gap" src="./assets/teemo/9.png" alt="9">
-                </div>  
+            </div>      
+            <form id="sliding-puzzle" class="sliding-puzzle" action="#"> 
+                <img src="./assets/teemo/1.png" alt="1" data-piece="1" class="piece">
+                <img src="./assets/teemo/2.png" alt="2" data-piece="2" class="piece">
+                <img src="./assets/teemo/3.png" alt="3" data-piece="3" class="piece">
+                <img src="./assets/teemo/4.png" alt="4" data-piece="4" class="piece">
+                <img src="./assets/teemo/5.png" alt="5" data-piece="5" class="piece">
+                <img src="./assets/teemo/6.png" alt="6" data-piece="6" class="piece">
+                <img src="./assets/teemo/7.png" alt="7" data-piece="7" class="piece">
+                <img src="./assets/teemo/8.png" alt="8" data-piece="8" class="piece">
+                <img id="gap" src="./assets/teemo/9.png" alt="9" data-piece="9" class="piece gap"> 
             </form>
         </div>
-        <div id="modalSettings" class="modal">
-            <div class="modal-content">
-                <span class="close" onclick="SlidingPuzzle.close()">&times;</span>
-                <div class="settings">
-                    <button onclick="SlidingPuzzle.close()">REANUDE</button>
-                    <button onclick="SlidingPuzzle.exit()">EXIT GAME</button>
-                </div>
+        <div class="actions">     
+            <button class="game-btn" onclick="SlidingPuzzle.pause()">PAUSE</button>
+            <button class="game-btn" onclick="SlidingPuzzle.start()">START</button>
+        </div>
+    </div> 
+    <div id="modalNewGame" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="Storage.close()">&times;</span>
+            <div class="settings">
+                <label for="username">PLEASE ENTER NAME</label>
+                <input type="text" id="username">
+                <button class="game-btn" onclick="Storage.createUsername()">CREATE USER</button> 
             </div>
         </div>
-        <div class="buttons">
-            <button onclick="SlidingPuzzle.start()">START</button>
-            <button onclick="SlidingPuzzle.pause()">PAUSE</button>
+    </div>  
+    <div id="modalSettings" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="SlidingPuzzle.close()">&times;</span>
+            <div class="settings">
+                <button class="game-btn" onclick="Storage.newGame()">NEW GAME</button>    
+                <button class="game-btn" onclick="SlidingPuzzle.close()">REANUDE</button>
+                <button class="game-btn" onclick="SlidingPuzzle.exit()">EXIT GAME</button>
+            </div>
         </div>
-    </div>    
+    </div>   
     <script src="./js/puzzle.js"></script>
 </body>
 </html>

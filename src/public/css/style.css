@@ -1,9 +1,21 @@
-.game {
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+body {
+
+}
+
+.main {
     display: flex;
     flex-flow: row nowrap;
     justify-content: center;
-    gap: 15px;
+    padding: 1.75em;
     position: relative;
+}
+
+.game {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 15px;
 }
 
 .stats-info {
@@ -12,35 +24,42 @@
     justify-content: space-between;
 }
 
-.buttons {
-    display: flex;
-    flex-flow: column nowrap;
-    gap: 10px;
-    align-self: center;
+.actions {
+    align-self: stretch;
+    background: beige;
+    border-bottom-right-radius: 15px;
+    border-top-right-radius: 15px;
+    display: flex;    
+    flex-flow: column-reverse nowrap;
+    gap: 10px;  
+    padding: 0 .725em 1.725em 0.725em;
+      
 }
 
 .sliding-puzzle {
+    background: #323232;
     display: flex;
     flex-flow: row wrap;
     height: 450px;
+    padding: 1.25em;
     width: 450px;
 }
 
 .piece {        
     height: 33.33%;
-    width: 33.33%;
+    width: 33.33%;    
 }
 
-.piece > img {
+.piece {
     border-radius: 10px; 
-    border: 2px solid #680000; 
+    border: 1px solid transparent; 
     max-width: 100%;
     max-height: 100%;
 }
 
 .gap {
     background-color: blue;
-    opacity: .1;
+    opacity: 0;
 }
 
 .modal {
@@ -78,7 +97,20 @@
     flex-flow: column nowrap;
     margin: auto;
     padding: 15px;
-    width: 50%;
+    text-align: center;
+    width: 80%;
+}
+
+.settings > input {
+    text-align: center;
+    border: 1px solid lightslategray;
+    border-radius: 20px;
+    height: 35px;
+}
+
+.settings input:active {
+    border: 1px solid lightslategray;
+    border-radius: 20px;
 }
 
 .close:focus,
@@ -86,6 +118,34 @@
     color: #000;
     text-decoration: none;
     cursor: pointer;
+}
+
+.game-btn{
+    font-family: 'Press Start 2P', cursive;
+    text-align: center;
+	display: inline-block;
+	margin:5px;
+    font-weight: bold;
+    padding: 10px;
+    background-color: lightgray;
+    text-shadow: -1px -1px black, 1px 1px white;
+    color: gray;
+    -webkit-border-radius: 7px;
+	-moz-border-radius: 7px;
+	-o-border-radius: 7px;
+	border-radius: 7px;
+    box-shadow: 0 .2em gray; 
+    cursor: pointer;    
+}
+
+.game-btn:hover { 
+    opacity: .85;
+}
+
+.game-btn:active {
+	box-shadow: none;
+	position: relative;
+	top: .2em;
 }
 
 @media only screen and (min-width: 320px) {
