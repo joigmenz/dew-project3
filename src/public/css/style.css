@@ -148,10 +148,24 @@ body {
 	top: .2em;
 }
 
+.scores {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+}
+
+.scores table {
+    text-align: center;
+    width: 80%;
+}
+
 @media only screen and (min-width: 320px) {
     .sliding-puzzle {
         height: 320px;
         width: 320px;
+    }
+    .modal-content {
+        height: 350px;
     }
 }
 
@@ -159,5 +173,8 @@ body {
     .sliding-puzzle {
         height: 450px;
         width: 450px;
+    }
+    .modal-content {
+        height: 350px;
     }
 }

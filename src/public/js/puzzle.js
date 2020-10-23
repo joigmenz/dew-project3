@@ -6,18 +6,32 @@ class Storage {
         this.modalNewGame.style.display = "block"
     }
     static load(){
-        if(!localStorage.getItem('data')){
+        if(!this.data){
             this.newGame()
+        }else{
+            let data = JSON.parse(localStorage.getItem('data')) 
+            let table = document.getElementById('statistics').children[1] 
+            table.innerHTML = ""       
+            data.forEach(user => {
+                let row = table.insertRow(0)
+                let name = row.insertCell(0)
+                let time = row.insertCell(1)
+                let score = row.insertCell(2)
+                name.innerHTML = user.name
+                time.innerHTML = user.time
+                score.innerHTML = user.score                
+            })
         }
     }
     static save(){
-        if(!localStorage.getItem('data')){
-            let data = new Array()
-            data.push(this.user)
-            localStorage.setItem('data', JSON.stringify(data))
-        }else{
-            
+        if(!this.data){
+            this.data = new Array()
+            this.data.push(this.user)            
+        }else{      
+            this.data = JSON.parse(localStorage.getItem('data'))       
+            this.data.push(this.user)       
         }
+        localStorage.setItem('data', JSON.stringify(this.data))
     }
     static createUsername(){
         if(document.getElementById('username').value){
@@ -38,7 +52,7 @@ class Storage {
 
 class SlidingPuzzle {
     static dimension = 3
-    static score = 0;
+    static score = 0
     static gap = document.getElementById("gap")
     static game = document.getElementById('sliding-puzzle')
     static modalSettings = document.getElementById('modalSettings')
@@ -92,6 +106,9 @@ class SlidingPuzzle {
             Clock.resume()
         }        
         this.modalSettings.style.display = "none"
+    }
+    static save(){
+        Storage.save()
     }
 }
 
