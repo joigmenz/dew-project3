@@ -13,9 +13,31 @@ body {
 }
 
 .game {
+    background-color: #e3e3e3;
+    border-top-left-radius: 15px;    
+    border-bottom-left-radius: 15px;
     display: flex;
     flex-flow: column nowrap;
     gap: 15px;
+}
+
+.stats-info {
+    padding: .175em .775em;
+}
+
+.time, .scope {
+    background:#f0f0f0;
+    border-radius: 10px;
+    width: 75px;
+    padding: 0 .775em;
+}
+
+.time {
+    text-align: center;
+}
+
+.scope {
+    text-align: right;
 }
 
 .stats-info {
@@ -26,7 +48,7 @@ body {
 
 .actions {
     align-self: stretch;
-    background: beige;
+    background: #e3e3e3;
     border-bottom-right-radius: 15px;
     border-top-right-radius: 15px;
     display: flex;    
@@ -38,19 +60,26 @@ body {
 
 .sliding-puzzle {
     background: #323232;
+    border-bottom-left-radius: 15px;
+    border-top-right-radius: 15px;
     display: flex;
     flex-flow: row wrap;
     height: 450px;
     padding: 1.25em;
+    position: relative;
     width: 450px;
 }
 
-.piece {        
+.piece {  
+    position: absolute;
+    border-radius: 10px;      
     height: 33.33%;
     width: 33.33%;    
+    left: 0%;
+    top: 0%;
 }
 
-.piece {
+.pieces {
     border-radius: 10px; 
     border: 1px solid transparent; 
     max-width: 100%;
@@ -71,6 +100,10 @@ body {
     left: 0;
     top: 0;
     z-index: 1;
+}
+
+.bg-puzzle {
+    background-color: rgba(0, 0, 0, 1); 
 }
 
 .modal-content {

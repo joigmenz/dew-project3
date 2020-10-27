@@ -1,58 +1,114 @@
-class Storage {    
-    static user;
+class Game {
+    static modalCreate = document.getElementById('modalCreate')
+    static modalSettings = document.getElementById('modalSettings')
+    static run(){
+        let data = Storage.load()
+        if(!data.length){
+            this.openModal(this.modalCreate)
+        }
+    }
+    static create(){
+        this.data = {
+            name: document.getElementById('username').value,
+            score: 0,
+            time: null,
+            completed: false
+        }
+        this.closeModal(this.modalCreate)
+    }
+    static openModal(modal){
+        modal.style.display = "block"
+    }
+    static closeModal(modal){
+        modal.style.display = "none"
+    }
+}
+
+class Storage {   
     static modalNewGame = document.getElementById('modalNewGame')
     static newGame(){
         SlidingPuzzle.modalSettings.style.display = "none"
         this.modalNewGame.style.display = "block"
     }
     static load(){
-        if(!this.data){
-            this.newGame()
-        }else{
-            let data = JSON.parse(localStorage.getItem('data')) 
-            let table = document.getElementById('statistics').children[1] 
-            table.innerHTML = ""       
-            data.forEach(user => {
-                let row = table.insertRow(0)
-                let name = row.insertCell(0)
-                let time = row.insertCell(1)
-                let score = row.insertCell(2)
-                name.innerHTML = user.name
-                time.innerHTML = user.time
-                score.innerHTML = user.score                
-            })
+        this.data = new Array()
+        if(localStorage.getItem('data')){
+            this.data = JSON.parse(localStorage.getItem('data')) 
         }
+        return this.data
     }
     static save(){
-        if(!this.data){
-            this.data = new Array()
-            this.data.push(this.user)            
-        }else{      
-            this.data = JSON.parse(localStorage.getItem('data'))       
-            this.data.push(this.user)       
-        }
+        this.data.push(Game.userData)
         localStorage.setItem('data', JSON.stringify(this.data))
-    }
-    static createUsername(){
-        if(document.getElementById('username').value){
-            let name = document.getElementById('username').value
-            document.getElementById('name').innerHTML = name
-            this.user = {
-                name: name,
-                time: undefined,
-                score: 0
-            }
-            this.modalNewGame.style.display ="none"
-        }        
-    }
-    static close(){
-        this.modalNewGame.style.display = "none"
     }
 }
 
-class SlidingPuzzle {
+class SlidingPuzzle extends Game {
+    static size = document.querySelector('.sliding-puzzle').clientHeight
+    static slots = {
+        one: {
+            img: one,
+            pos: [0, 0]
+        },
+        two: {
+            img: two,
+            pos: [1, 0]
+        },
+        three: {
+            img: three,
+            pos: [2, 0]
+        },
+        four: {
+            img: four,
+            pos: [0, 1]
+        },
+        five: {
+            img: five,
+            pos: [1, 1]
+        },
+        six: {
+            img: six,
+            pos: [2, 1]
+        },
+        seven: {
+            img: seven,
+            pos: [0, 2]
+        },
+        eight: {
+            img: eight,
+            pos: [1, 2]
+        },
+        gap: {
+            img: gap,
+            pos: [2, 2]
+        }
+    }
+    static slide(piece){
+
+        console.log(piece.target.id, SlidingPuzzle.slots.one)
+    }
+    static translate(piece, pos){
+        piece.style.transform = `translate(${this.slots[piece].pos[0] * (this.size/3)}px, ${this.slots[piece].pos[1] * (this.size/3)}px)`
+    }
+    static shuffle(){
+        const imgs = document.querySelectorAll('.piece')
+        for(let piece in this.slots){
+            this.slots[piece].img.style.transform = `translate(${this.slots[piece].pos[0] * (this.size/3)}px, ${this.slots[piece].pos[1] * (this.size/3)}px)`
+            this.slots[piece].img.addEventListener('click', this.slide, true)
+            console.log(this.slots[piece].img)
+        }
+        /*
+        for(let i=0; i < this.pieces.length; i++){
+            imgs[i].style.left = `${this.pieces[i].pos[0] * this.size / 3}px`
+            imgs[i].style.top = `${this.pieces[i].pos[1] * this.size / 3}px`
+            imgs[i].addEventListener('click', this.slide, true)
+        }*/
+    }
+}
+
+class SlidingPuzzleV1 extends Game {
     static dimension = 3
-    static score = 0
+    static score = 0;
     static gap = document.getElementById("gap")
     static game = document.getElementById('sliding-puzzle')
     static modalSettings = document.getElementById('modalSettings')
@@ -63,14 +119,10 @@ class SlidingPuzzle {
         || (parseInt(this.gap.style.order) - this.dimension) == event.target.style.order
         || (parseInt(this.gap.style.order) + this.dimension) == event.target.style.order){
             this.sliding(event.target)    
-            document.getElementById('score').innerHTML = ++this.score  
-            Storage.user.score++     
+            document.getElementById('score').innerHTML = ++this.score              
         }           
     })
     static start(){
-        if(!Storage.user){
-            Storage.newGame()
-        }
         Clock.restart()
         this.count = 0
         let imgs = this.game.querySelectorAll('img')
@@ -121,7 +173,7 @@ class Clock {
                 Clock.totalSeconds++;
                 document.getElementById("min").innerHTML = pad(Math.floor(Clock.totalSeconds / 60 % 60));
                 document.getElementById("sec").innerHTML = pad(parseInt(Clock.totalSeconds % 60));
-                Storage.user.time = Clock.totalSeconds
+                Game.userData.time = Clock.totalSeconds
             }, 1000);
         }
     }  
@@ -147,10 +199,12 @@ class Clock {
     }
 };
 
-window.onclick = function(event) {
-    if(event.target == SlidingPuzzle.modalSettings) {
-        SlidingPuzzle.modalSettings.style.display = "none"
+window.onclick = function(event) {   
+    if(event.target == Game.modalSettings) {
+        Game.closeModal(event.target)
     }
 }
 
-Storage.load()
+SlidingPuzzle.run()
+//Game.run()
+//Storage.load()

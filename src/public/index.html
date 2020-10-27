@@ -12,7 +12,7 @@
     <div class="main">
         <div class="game"> 
             <div class="user-info">
-                <span id="name" class="name"></span>
+                <span id="modal" class="name"></span>
             </div> 
             <div class="stats-info">
                 <div class="time">
@@ -24,45 +24,30 @@
                 </div>
             </div>      
             <form id="sliding-puzzle" class="sliding-puzzle" action="#"> 
-                <img src="./assets/teemo/1.png" alt="1" data-piece="1" class="piece">
-                <img src="./assets/teemo/2.png" alt="2" data-piece="2" class="piece">
-                <img src="./assets/teemo/3.png" alt="3" data-piece="3" class="piece">
-                <img src="./assets/teemo/4.png" alt="4" data-piece="4" class="piece">
-                <img src="./assets/teemo/5.png" alt="5" data-piece="5" class="piece">
-                <img src="./assets/teemo/6.png" alt="6" data-piece="6" class="piece">
-                <img src="./assets/teemo/7.png" alt="7" data-piece="7" class="piece">
-                <img src="./assets/teemo/8.png" alt="8" data-piece="8" class="piece">
-                <img id="gap" src="./assets/teemo/9.png" alt="9" data-piece="9" class="piece gap"> 
+                <img id="one" src="./assets/teemo/1.png" data-piece="1" class="piece">
+                <img id="two" src="./assets/teemo/2.png" data-piece="2" class="piece">
+                <img id="three" src="./assets/teemo/3.png" data-piece="3" class="piece">
+                <img id="four" src="./assets/teemo/4.png" data-piece="4" class="piece">
+                <img id="five" src="./assets/teemo/5.png" data-piece="5" class="piece">
+                <img id="six" src="./assets/teemo/6.png" data-piece="6" class="piece">
+                <img id="seven" src="./assets/teemo/7.png" data-piece="7" class="piece">
+                <img id="eight" src="./assets/teemo/8.png" data-piece="8" class="piece">
+                <img id="gap" src="./assets/teemo/9.png" data-piece="9" class="piece gap"> 
             </form>
         </div>
         <div class="actions"> 
             <button class="game-btn" onclick="SlidingPuzzle.save()">SAVE</button>    
-            <button class="game-btn" onclick="SlidingPuzzle.pause()">PAUSE</button>
-            <button class="game-btn" onclick="SlidingPuzzle.start()">START</button>
+            <button class="game-btn" onclick="Game.openModal(Game.modalSettings)">SETTINGS</button>
+            <button class="game-btn" onclick="Game.play()">PLAY</button>
         </div>
-    </div> 
-    <div class="scores">
-        <h2>SCORES</h2>
-        <table id="statistics">
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Score</th>
-                    <th>Time</th>
-                </tr>
-            </thead>
-            <tbody>
-                
-            </tbody>
-        </table>
-    </div>
-    <div id="modalNewGame" class="modal">
+    </div>     
+    <div id="modalCreate" class="modal bg-puzzle">
         <div class="modal-content">
             <span class="close" onclick="Storage.close()">&times;</span>
             <div class="settings">
                 <label for="username">PLEASE ENTER NAME</label>
                 <input type="text" id="username">
-                <button class="game-btn" onclick="Storage.createUsername()">CREATE USER</button> 
+                <button class="game-btn" onclick="Game.create()">CREATE</button> 
             </div>
         </div>
     </div>  
@@ -76,5 +61,22 @@
         </div>
     </div>   
     <script src="./js/puzzle.js"></script>
+    <!--
+    <div class="scores">
+        <h2>Rankings</h2>
+        <table id="statistics">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Score</th>
+                    <th>Time</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+            </tbody>
+        </table>
+    </div>
+    -->
 </body>
 </html>
