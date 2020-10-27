@@ -22,6 +22,9 @@ class Game {
     static closeModal(modal){
         modal.style.display = "none"
     }
+    static play(){
+        SlidingPuzzle.shuffle()
+    }
 }
 
 class Storage {   
@@ -42,7 +45,6 @@ class Storage {
         localStorage.setItem('data', JSON.stringify(this.data))
     }
 }
-
 class SlidingPuzzle extends Game {
     static size = document.querySelector('.sliding-puzzle').clientHeight
     static slots = {
@@ -84,8 +86,13 @@ class SlidingPuzzle extends Game {
         }
     }
     static slide(piece){
-
-        console.log(piece.target.id, SlidingPuzzle.slots.one)
+        for(let slot in SlidingPuzzle.slots){
+            if(SlidingPuzzle.slots[slot].img == piece.target){
+                //console.log(SlidingPuzzle.slots[slot].img == piece.target)
+                console.log(SlidingPuzzle.slots[piece.target.id])
+            }            
+        }
+        //console.log(piece.target.id, SlidingPuzzle.slots.one)
     }
     static translate(piece, pos){
         piece.style.transform = `translate(${this.slots[piece].pos[0] * (this.size/3)}px, ${this.slots[piece].pos[1] * (this.size/3)}px)`
@@ -205,6 +212,6 @@ window.onclick = function(event) {
     }
 }
 
-SlidingPuzzle.run()
+//SlidingPuzzle.run()
 //Game.run()
 //Storage.load()
