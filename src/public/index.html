@@ -35,48 +35,11 @@
                 <img id="gap" src="./assets/teemo/9.png" data-piece="9" class="piece gap"> 
             </form>
         </div>
-        <div class="actions"> 
-            <!--<button class="game-btn" onclick="SlidingPuzzle.save()">SAVE</button>-->    
-            <button class="game-btn" onclick="Game.openModal(Game.modalSettings)">PAUSE</button>
-            <button class="game-btn" onclick="Game.play()">PLAY</button>
-        </div>
-    </div>     
-    <div id="modalCreate" class="modal bg-puzzle">
-        <div class="modal-content">
-            <span class="close" onclick="Storage.close()">&times;</span>
-            <div class="settings">
-                <label for="username">PLEASE ENTER NAME</label>
-                <input type="text" id="username">
-                <button class="game-btn" onclick="Game.create()">CREATE</button> 
-            </div>
-        </div>
-    </div>  
-    <div id="modalSettings" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="SlidingPuzzle.close()">&times;</span>
-            <div class="settings">
-                <button class="game-btn" onclick="Storage.newGame()">NEW GAME</button>    
-                <button class="game-btn" onclick="SlidingPuzzle.close()">RESUME</button>
-            </div>
+        <div class="actions">    
+            <button id="pause" class="game-btn" onclick="SlidingPuzzle.pause()">PAUSE</button>
+            <button class="game-btn" onclick="SlidingPuzzle.play()">START</button>
         </div>
     </div>   
     <script src="./js/puzzle.js"></script>
-    <!--
-    <div class="scores">
-        <h2>Rankings</h2>
-        <table id="statistics">
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Score</th>
-                    <th>Time</th>
-                </tr>
-            </thead>
-            <tbody>
-                
-            </tbody>
-        </table>
-    </div>
-    -->
 </body>
 </html>
